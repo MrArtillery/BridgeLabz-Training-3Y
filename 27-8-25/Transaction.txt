@@ -1,0 +1,33 @@
+//Transaction
+package Practice;
+import java.util.*;
+public class Transaction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.print("Enter no. of transaction: ");
+		int n=sc.nextInt();
+		
+		int finalBalance=0;
+		
+		int[] arr=new int[n];
+		
+		System.out.print("Enter the transactions: ");
+		for(int i=0; i<n; i++) {
+			arr[i]=sc.nextInt();
+		}
+		
+		for(int i=0; i<n; i++) {
+			finalBalance+=arr[i];
+		}
+		if(finalBalance>=0) {
+			System.out.print("Final Balance = "+finalBalance);
+		}
+		else {
+			System.out.print("Overdraft!");
+		}
+	}
+
+}
