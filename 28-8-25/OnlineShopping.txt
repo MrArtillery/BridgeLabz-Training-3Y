@@ -1,0 +1,75 @@
+//OnlineShopping
+package Practice;
+import java.util.*;
+public class OnlineShoppingCartSystem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		
+		char moreCustomer;
+		
+		while (true) {
+			System.out.println("=== Online Shopping Cart ===");
+			
+			int totalamt=0;
+			
+			int n;
+			do {
+				System.out.print("Enter no. of products to buy (atlest 1): ");
+				n=sc.nextInt();
+			}while (n<1);
+			
+			for(int i=1; i<=n; i++) {
+				System.out.println("Select product "+i+" :");
+				System.out.println("1. Mobile - Rs.2500");
+				System.out.println("2. Laptop - Rs. 4500");
+				System.out.println("3. Headphone - Rs. 1000");
+				System.out.println("4. Charger - Rs 500");
+				System.out.println("5. Smart Watch - Rs 3000");
+				
+				int choice=sc.nextInt();
+				
+				switch(choice) {
+				case 1:
+					totalamt+=2500;
+					break;
+				case 2:
+					totalamt+=4500;
+					break;
+				case 3:
+					totalamt+=1000;
+					break;
+				case 4:
+					totalamt+=500;
+					break;
+				case 5:
+					totalamt+=3000;
+					break;
+				default:
+					System.out.println("Invalid choice!!! No item added.");
+				}
+			}
+			
+			if(totalamt>5000) {
+				int discount=totalamt*10/100;
+				totalamt-=discount;
+				System.out.println("Congratulation! You got 10% discount.");
+			}
+			
+			System.out.println("Final bill amount: Rs - "+totalamt);
+			
+			System.out.print("Is there any other customer? (Y/N): ");
+			moreCustomer=sc.next().charAt(0);
+			
+			if(moreCustomer=='n' || moreCustomer=='N') {
+				System.out.println("Shop closed!!! Thank you.");
+				break;
+			}
+			
+		}
+		sc.close();
+
+	}
+
+}
