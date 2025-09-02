@@ -1,0 +1,52 @@
+//SalarySlip
+package Practice;
+import java.util.*;
+public class EmployeeSalarySlip {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.print("Enter no. of employees: ");
+		int n=sc.nextInt();
+		
+		String[] name=new String[n];
+		int[] salary=new int[n];
+		double hra;
+		double da;
+		double netSalary;
+		double tax;
+		
+		System.out.print("Enter name of employees: ");
+		for(int i=0; i<n; i++) {
+			name[i]=sc.next();
+		}
+		
+		System.out.print("Enter salary of employees: ");
+		for(int i=0; i<n; i++) {
+			salary[i]=sc.nextInt();
+		}
+		
+		for(int i=0; i<n; i++) {
+			hra=(20.0/100)*salary[i];
+			da=(10.0/100)*salary[i];
+			netSalary=salary[i]+hra+da;
+			System.out.println();
+			System.out.println("HRA of "+name[i]+" = "+hra);
+			System.out.println("DA of "+name[i]+" = "+da);
+			System.out.println("Net salary of "+name[i]+" = "+netSalary);
+			
+			if(netSalary>50000) {
+				tax=(10.0/100)*netSalary;
+				netSalary-=tax;
+			}
+			
+			System.out.println("Final salary slip: "+netSalary);
+			
+		}
+		
+		
+
+	}
+
+}
