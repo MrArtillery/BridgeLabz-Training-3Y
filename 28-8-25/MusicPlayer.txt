@@ -1,0 +1,71 @@
+//MusicPlayer
+package Practice;
+import java.util.*;
+public class MusicPlaylistManager {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		
+		String[] song= {"Faasle", "Zaroorat", "Jeene Laga Ho"};
+		System.out.print("Songs: Faasle, Zaroorat, Jeene Laga Ho");
+		
+		int choice=0;
+		
+		while(choice!=4) {
+			System.out.println("=== Music Playlist Manager ===");
+			System.out.println("1-> Play all songs");
+			System.out.println("2-> Play a song by index");
+			System.out.println("3-> Play a song by name");
+			System.out.println("4-> Exit");
+			
+			System.out.print("Enter your choice: ");
+			choice=sc.nextInt();
+			
+			switch(choice) {
+			case 1:
+				System.out.print("Playing all songs");
+				for (String songs : song) {
+                    System.out.println("Playing: " + song);
+                }
+                break;
+                
+			case 2:
+				System.out.print("Enter song index (0 to " + (song.length - 1) + "): ");
+                int index = sc.nextInt();
+                if (index >= 0 && index < song.length) {
+                    System.out.println("Playing: " + song[index]);
+                } else {
+                    System.out.println("Invalid index!");
+                }
+                break;
+                
+			case 3:
+				System.out.print("Enter song name to search: ");
+                String search = sc.next();
+                boolean found = false;
+                for (String songs : song) {
+                    if (songs.equalsIgnoreCase(search)) {
+                        System.out.println("Playing: " + songs);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Song not found!");
+                }
+                break;
+                
+			case 4:
+				System.out.println("Exiting Music Player. Goodbye!");
+                break;
+
+            default:
+                System.out.println("Invalid choice! Try again.");
+			} 
+			
+		}
+		sc.close();
+	}
+
+}
